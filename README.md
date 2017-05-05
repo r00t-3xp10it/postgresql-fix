@@ -1,4 +1,4 @@
-[![Version](https://img.shields.io/badge/postgresql-fix-1.1-brightgreen.svg?maxAge=259200)]()
+[![Version](https://img.shields.io/badge/postgresql_fix-1.1-brightgreen.svg?maxAge=259200)]()
 [![Stage](https://img.shields.io/badge/Release-Stable-brightgreen.svg)]()
 [![Build](https://img.shields.io/badge/Supported_OS-kali,Ubuntu,Mint,Parrot-blue.svg)]()
 
