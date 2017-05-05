@@ -3,7 +3,7 @@
 [![Build](https://img.shields.io/badge/Supported_OS-kali,Ubuntu,Mint,Parrot-blue.svg)]()
 
 
-![postgresql-fix v1.1](http://2.1m.yt/1-banner.png)
+![postgresql-fix v1.1](http://1.1m.yt/CqtQI1e.png)
 
 
 ## Postgresql-fix v1.1 - msfdb connection bugfix
@@ -19,7 +19,7 @@
     This tool will try to quickly fix the metasploit postgresql connection bug,
     present in postgresql.conf install versions from 9.1 to 9.7 (Incorrect port settings).
     'Just run it before using metasploit to check settings OR fix msfdb connection errors'
-![postgresql-fix v1.1](http://2.1m.yt/2-error.png)
+![postgresql-fix v1.1](http://3.1m.yt/HxhuFoF.png)
 
     This module will seach in postgresql.conf for port settings, and change it to the
     correct port configuration needed by msfdb (5432), it starts postgresql service and
@@ -30,26 +30,26 @@
     This module allows users to config a diferent port (5432) to be used, and a diferent
     postgresql installation path (/etc/postgresql) Users just need to edit the script
     and modify the values 'PoRt' and 'RoOt' in 'Tool variable declarations' funtion.
-![postgresql-fix v1.1](http://2.1m.yt/3-variables.png)
+![postgresql-fix v1.1](http://4.1m.yt/br8BhQp.png)
 
 
 <br /><br />
 
 ## Possible errors encounter in configurations
 Incorrect postgresql port configuration setting
-![Postgresql-fix v1.1](http://2.1m.yt/4-Script-fix.png)
+![Postgresql-fix v1.1](http://1.1m.yt/3FJOy-d.png)
 Postgresql selected, no connection ..
-![Postgresql-fix v1.1](http://3.1m.yt/5-Script-fix.png)
+![Postgresql-fix v1.1](http://2.1m.yt/So80mg-.png)
 
 <br />
 
 ## Improbable script execution errors
 Is your postgresql.conf installed in a diferent path? 
-![Postgresql-fix v1.1](http://2.1m.yt/Script-Improbable-exec-error-1.png)
+![Postgresql-fix v1.1](http://3.1m.yt/WGk3Whl.png)
 Writing this script i cant imagine any situation were this error may appen.
 But ive left this funtion 'open' just in case i will recibe any bug report
 from this project users, only then i will write a workaround ..
-![Postgresql-fix v1.1](http://3.1m.yt/Script-Improbable-exec-error-2.png)
+![Postgresql-fix v1.1](http://3.1m.yt/ibupSSp.png)
 
 <br /><br />
 
