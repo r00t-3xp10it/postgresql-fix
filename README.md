@@ -3,7 +3,6 @@
 [![Build](https://img.shields.io/badge/Supported_OS-kali,Ubuntu,Mint,Parrot-blue.svg)]()
 
 
-
 ![postgresql-fix v1.1](http://1.1m.yt/CqtQI1e.png)
 
 
