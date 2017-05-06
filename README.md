@@ -78,7 +78,7 @@ from this project users, only then i will write a workaround ..
 <br /><br />
 
 ## Video tutorials:
-Postgresql-fix [ Official release - Main funtions ]: https://www.youtube.com/watch?v=4dEYIO-xBHU
+Postgresql-fix [ Official release - Main funtions ]: https://www.youtube.com/watch?v=EGOgzm7fpEk
 
 <br />
 
