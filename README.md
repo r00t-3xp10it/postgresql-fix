@@ -1,6 +1,6 @@
 [![Version](https://img.shields.io/badge/postgresql_fix-1.1-brightgreen.svg?maxAge=259200)]()
 [![Stage](https://img.shields.io/badge/Release-Stable-brightgreen.svg)]()
-[![Build](https://img.shields.io/badge/Supported_OS-kali,Ubuntu,Mint,Parrot-blue.svg)]()
+[![Build](https://img.shields.io/badge/Supported_OS-kali,Ubuntu-blue.svg)]()
 
 
 ![postgresql-fix v1.1](http://1.1m.yt/CqtQI1e.png)
