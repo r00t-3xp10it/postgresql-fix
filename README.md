@@ -3,7 +3,7 @@
 [![Build](https://img.shields.io/badge/Supported_OS-kali,Ubuntu-blue.svg)]()
 
 
-![postgresql-fix v1.2](http://1.2m.yt/CqtQI1e.png)
+![postgresql-fix v1.2](http://1.1m.yt/CqtQI1e.png)
 
 
 ## Postgresql-fix v1.2 - msfdb connection bugfix
@@ -37,7 +37,7 @@
 
 ## Possible errors encounter in configurations
 Incorrect postgresql port configuration setting
-![Postgresql-fix v1.2](http://1.2m.yt/3FJOy-d.png)
+![Postgresql-fix v1.2](http://1.1m.yt/3FJOy-d.png)
 Postgresql selected, no connection ..
 ![Postgresql-fix v1.2](http://2.1m.yt/So80mg-.png)
 
