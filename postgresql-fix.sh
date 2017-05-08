@@ -65,7 +65,7 @@ Reset="${Escape}[0m";
 
 
 #
-# check if user is root
+# check if user is root (admin)
 #
 if [ $(id -u) != "0" ]; then
 echo "[☠] we need to be root to run this script..."
