@@ -34,7 +34,7 @@ VeR="1.2"                            # Script version number
 PoRt="5432"                          # Port used by metasploit to connect to postgresql
 RoOt="/etc/postgresql"               # Path to postgresql instalation (version search)
 SeRvIcE="service postgresql start"   # Command used to start the postgresql service
-DiStRo=`awk '{print $1}' /etc/issue` # grab distribution -  Ubuntu or Kali
+DiStRo=`awk '{print $1}' /etc/issue` # Store distribution -  Ubuntu or Kali
 ##___________________________________|
 
 

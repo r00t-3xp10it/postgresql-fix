@@ -30,7 +30,7 @@
     This module allows users to config a diferent port (5432) to be used, and a diferent
     postgresql installation path (/etc/postgresql) Users just need to edit the script
     and modify the values 'PoRt' and 'RoOt' in 'Tool variable declarations' funtion.
-![postgresql-fix v1.2](http://4.1m.yt/br8BhQp.png)
+![postgresql-fix v1.2](http://4.1m.yt/ypeUWT_.png)
 
 
 <br /><br />
