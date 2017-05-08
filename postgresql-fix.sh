@@ -65,6 +65,17 @@ Reset="${Escape}[0m";
 
 
 #
+# check if user is root
+#
+if [ $(id -u) != "0" ]; then
+echo "[☠] we need to be root to run this script..."
+echo "[☠] execute [ sudo ./postgresql.sh ] on terminal"
+exit
+fi
+
+
+
+#
 # Tool main Banner display
 #
 Colors;
