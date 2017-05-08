@@ -102,7 +102,7 @@ cat << !
     #
     # Trying to locate the latest version installed (Ubuntu)..
     #
-    path=`locate postgresql.conf | grep "/opt"`
+    path=`sudo locate postgresql.conf | grep "/opt"`
     if [ "$path" = "$RoOt/data/postgresql.conf" ]; then
       postgresql_path="$RoOt/data/postgresql.conf"
     fi
