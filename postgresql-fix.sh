@@ -1,6 +1,6 @@
 #!/bin/sh
 ##
-# Version release: v1.1 (Stable)
+# Version release: v1.2 (Stable)
 # Author: pedr0 Ubuntu [r00t-3xp10it]
 # codename: Metasploit_postgresql_database_connection_fix
 # Distros Supported : Linux Ubuntu, Kali, Mint, Parrot OS
@@ -28,13 +28,15 @@
 
 
 #
-# Tool variable declarations ______
-#                                  |
-VeR="1.1"                          # Script version number
-PoRt="5432"                        # Port used by metasploit to connect to postgresql
-RoOt="/etc/postgresql"             # Path to postgresql instalation (version search)
-SeRvIcE="service postgresql start" # Command used to start the postgresql service
-##_________________________________|
+# Tool variable declarations ________
+#                                    |
+VeR="1.2"                            # Script version number
+PoRt="5432"                          # Port used by metasploit to connect to postgresql
+RoOt="/etc/postgresql"               # Path to postgresql instalation (version search)
+SeRvIcE="service postgresql start"   # Command used to start the postgresql service
+DiStRo=`awk '{print $1}' /etc/issue` # grab distribution -  Ubuntu or Kali
+##___________________________________|
+
 
 
 
@@ -81,11 +83,28 @@ cat << !
   # Store postgresql.conf full PATH into one bash variable ..
   # Only the lastest version installed of postgresql will be locked ..
   #
+  # check attacker version OS to config path
+  if [ "$DiStRo" = "Ubuntu" ]; then
+  echo ${BlueF}[☆]${white}" OS: $DiStRo distribution found .."${Reset};
   echo ${BlueF}[☆]${white}" Storing postgresql.conf full path .."${Reset};
 
     #
-    # Trying to locate the latest version installed ..
+    # Trying to locate the latest version installed (Ubuntu)..
     #
+    path=`locate postgresql.conf | grep "/opt"`
+    if [ "$path" = "$RoOt/data/postgresql.conf" ]; then
+      postgresql_path="$RoOt/data/postgresql.conf"
+    fi
+
+
+  else
+
+
+    #
+    # Trying to locate the latest version installed (Kali)..
+    #
+    echo ${BlueF}[☆]${white}" OS: $DiStRo distribution found .."${Reset};
+    echo ${BlueF}[☆]${white}" Storing postgresql.conf full path .."${Reset};
     path=`locate postgresql.conf | grep "/etc" | grep "9.1"`
     if [ "$path" = "$RoOt/9.1/main/postgresql.conf" ]; then
       postgresql_path="$RoOt/9.1/main/postgresql.conf"
@@ -114,6 +133,9 @@ cat << !
     if [ "$path" = "$RoOt/9.7/main/postgresql.conf" ]; then
       postgresql_path="$RoOt/9.7/main/postgresql.conf"
     fi
+  fi
+
+
     #
     # Confirm if the tool has stored correctly the postgresql.conf full PATH ..
     #
