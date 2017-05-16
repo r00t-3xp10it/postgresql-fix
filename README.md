@@ -46,10 +46,6 @@ Postgresql selected, no connection ..
 ## Improbable script execution errors
 Is your postgresql.conf installed in a diferent path? 
 ![Postgresql-fix v1.3](http://3.1m.yt/WGk3Whl.png)
-Writing this script i cant imagine any situation were this error may appen.
-But ive left this funtion 'open' just in case i will recibe any bug report
-from this project users, only then i will write a workaround ..
-![Postgresql-fix v1.3](http://3.1m.yt/ibupSSp.png)
 
 <br /><br />
 
