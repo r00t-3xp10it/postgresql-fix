@@ -1,6 +1,6 @@
 #!/bin/sh
 ##
-# Version release: v1.2 (Stable)
+# Version release: v1.3 (Stable)
 # Author: pedr0 Ubuntu [r00t-3xp10it]
 # codename: Metasploit_postgresql_database_connection_fix
 # Distros Supported : Linux Ubuntu, Kali, Mint, Parrot OS
@@ -30,11 +30,12 @@
 #
 # Tool variable declarations ________
 #                                    |
-VeR="1.2"                            # Script version number
+VeR="1.3"                            # Script version number
 PoRt="5432"                          # Port used by metasploit to connect to postgresql
 RoOt="/etc/postgresql"               # Path to postgresql instalation (version search)
 SeRvIcE="service postgresql start"   # Command used to start the postgresql service
 DiStRo=`awk '{print $1}' /etc/issue` # Store distribution -  Ubuntu or Kali
+BYpAsS="NO"                          # Bypass LocaHost checks (127.0.0.1:5432)
 ##___________________________________|
 
 
@@ -96,7 +97,7 @@ cat << !
   #
   # check attacker version OS to config path
   if [ "$DiStRo" = "Ubuntu" ]; then
-  echo ${BlueF}[☆]${white}" OS: $DiStRo distribution found .."${Reset};
+  echo ${BlueF}[☆]${white}" $DiStRo OS distribution found .."${Reset};
   echo ${BlueF}[☆]${white}" Storing postgresql.conf full path .."${Reset};
 
     #
@@ -114,7 +115,7 @@ cat << !
     #
     # Trying to locate the latest version installed (Kali)..
     #
-    echo ${BlueF}[☆]${white}" OS: $DiStRo distribution found .."${Reset};
+    echo ${BlueF}[☆]${white}" $DiStRo OS distribution found .."${Reset};
     echo ${BlueF}[☆]${white}" Storing postgresql.conf full path .."${Reset};
     path=`locate postgresql.conf | grep "/etc" | grep "9.1"`
     if [ "$path" = "$RoOt/9.1/main/postgresql.conf" ]; then
@@ -183,7 +184,7 @@ cat << !
       #
       echo ${RedF}[x]${white}" Postgresql Incorrect port configuration .."${Reset};
       sleep 1
-      echo ${RedF}[x]${white}" Postgresql Port found: $port .."${Reset};
+      echo ${RedF}[x]${white}" Postgresql Port found:${RedF}$port${white} .."${Reset};
       sleep 1
         #
         # Use SED(bash) to replace the PORT number in postgresql.conf ..
@@ -193,13 +194,13 @@ cat << !
         sleep 1
         # Re-define PORT variable(bash) to be used further ahead ..
         port="$PoRt"
-        echo ${GreenF}[✔]${white}" Postgresql port": $port ${Reset};
+        echo ${GreenF}[✔]${white}" Postgresql port":${GreenF}$port ${Reset};
         sleep 1
       else
         #
         # All good in postgresql PORT settings found ..
         #
-        echo ${GreenF}[✔]${white}" Postgresql port": $port ${Reset};
+        echo ${GreenF}[✔]${white}" Postgresql port":${GreenF}$port ${Reset};
         sleep 1
       fi
 
@@ -214,15 +215,18 @@ sleep 1
 
 
   #
-  # Check if correct PORT its open (LocalHost)
+  # Store LocalHost settings into one enviroment variable ..
   #
-  echo ${BlueF}[☆]${white}" Checking LocalHost connection status .."${Reset};
   check=`ss -ant | grep "127" | grep "$port" | awk {'print $4'} | cut -d ':' -f2`
   print=`ss -ant | grep "127" | grep "$port" | awk {'print $4'}`
-  # Not found == Display all configurations active ..
   nill=`ss -ant | grep "127" | awk {'print $4'}`
-  sleep 1
 
+  #
+  # Bypass or NOT the use of LocalHost checks ..
+  #
+  if [ "$BYpAsS" = "NO" ]; then
+  echo ${BlueF}[☆]${white}" Checking LocalHost connection status .."${Reset};
+  sleep 1
 
     if [ "$check" != "$port" ]; then
       #
@@ -270,6 +274,40 @@ sleep 1
             sleep 1
           fi
     fi
+
+  else
+
+        echo ${YellowF}[☠]${white}" LocalHost checks:${RedF} Bypassed${white} .."${Reset};
+        echo ${YellowF}[☠]${white}" LocalHost settings: $print "${Reset};
+        sleep 1
+        echo ${BlueF}[☆]${white}" Checking msfdb connection status .."${Reset};
+        ih=`msfconsole -q -x 'db_status; exit -y' | awk {'print $3'}`
+
+          #
+          # Postgresql selected, no connection ..
+          #
+          if [ "$ih" != "connected" ]; then
+            echo ${RedF}[x]${white}" postgresql selected, no connection .."${Reset};
+            echo ${RedF}[x]${white}" Please wait, rebuilding msf database .."${Reset};
+            sleep 1
+            #
+            # Rebuild msf database (database.yml)
+            #
+            echo ""
+            msfdb reinit | zenity --progress --pulsate --title "☠ PLEASE WAIT ☠" --text="Rebuild metasploit database" --percentage=0 --auto-close --width 300 > /dev/null 2>&1
+            echo ""
+            echo ${GreenF}[✔]${white}" postgresql connected to msf .."${Reset};
+            sleep 1
+          else
+            #
+            # All good in Postgresql connection to Metasploit database ..
+            #
+            echo ${GreenF}[✔]${white}" postgresql connected to msf .."${Reset};
+            sleep 1
+          fi
+
+
+  fi
 
 
 
