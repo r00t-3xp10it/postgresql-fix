@@ -132,7 +132,7 @@ cat << !
       else
         echo ${RedF}[x]${white}" Postgresql.conf path not found .."${Reset};
         sleep 1
-        echo ${RedF}[x]${white}" Path sellected": $RoOt ${Reset};
+        echo ${RedF}[x]${white}" Path sellected: $RoOt/../main/postgresql.conf" ${Reset};
         sleep 2
         echo ${RedF}[x]${white}" Script execution aborted .."${Reset};
         sleep 1
@@ -187,7 +187,7 @@ cat << !
     if ! [ -e "$postgresql_path" ]; then
       echo ${RedF}[x]${white}" Postgresql.conf path not found .."${Reset};
       sleep 1
-      echo ${RedF}[x]${white}" Path sellected": $RoOt ${Reset};
+      echo ${RedF}[x]${white}" Path sellected: $RoOt/../main/postgresql.conf" ${Reset};
       sleep 2
       echo ${RedF}[x]${white}" Script execution aborted .."${Reset};
       sleep 1
