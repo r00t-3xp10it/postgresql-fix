@@ -1,6 +1,6 @@
 #!/bin/sh
 ##
-# Version release: v1.3 (Stable)
+# Version release: v1.4 (Stable)
 # Author: pedr0 Ubuntu [r00t-3xp10it]
 # codename: Metasploit_postgresql_database_connection_fix
 # Distros Supported : Linux Ubuntu, Kali, Mint, Parrot OS
@@ -30,7 +30,7 @@
 #
 # Tool variable declarations ________
 #                                    |
-VeR="1.3"                            # Script version number
+VeR="1.4"                            # Script version number
 PoRt="5432"                          # Port used by metasploit to connect to postgresql
 RoOt="/etc/postgresql"               # Path to postgresql instalation (version search)
 SeRvIcE="service postgresql start"   # Command used to start the postgresql service
@@ -108,9 +108,42 @@ cat << !
       postgresql_path="$RoOt/data/postgresql.conf"
     fi
 
+  #
+  # Config setting for Parrot system (shanty bug-report)
+  #
+  elif [ "$DiStRo" = "Parrot" ]; then
+    echo ${BlueF}[☆]${white}" $DiStRo OS distribution found .."${Reset};
+    echo ${BlueF}[☆]${white}" Storing postgresql.conf full path .."${Reset};
+      # find the correct version installed
+      if [ -e "$RoOt/9.1/main/postgresql.conf" ]; then
+        postgresql_path="$RoOt/9.1/main/postgresql.conf"
+      elif [ -e "$RoOt/9.2/main/postgresql.conf" ]; then
+        postgresql_path="$RoOt/9.2/main/postgresql.conf"
+      elif [ -e "$RoOt/9.3/main/postgresql.conf" ]; then
+        postgresql_path="$RoOt/9.3/main/postgresql.conf"
+      elif [ -e "$RoOt/9.4/main/postgresql.conf" ]; then
+        postgresql_path="$RoOt/9.4/main/postgresql.conf"
+      elif [ -e "$RoOt/9.5/main/postgresql.conf" ]; then
+        postgresql_path="$RoOt/9.5/main/postgresql.conf"
+      elif [ -e "$RoOt/9.6/main/postgresql.conf" ]; then
+        postgresql_path="$RoOt/9.6/main/postgresql.conf"
+      elif [ -e "$RoOt/9.7/main/postgresql.conf" ]; then
+        postgresql_path="$RoOt/9.7/main/postgresql.conf"
+      else
+        echo ${RedF}[x]${white}" Postgresql.conf path not found .."${Reset};
+        sleep 1
+        echo ${RedF}[x]${white}" Path sellected": $RoOt ${Reset};
+        sleep 2
+        echo ${RedF}[x]${white}" Script execution aborted .."${Reset};
+        sleep 1
+        echo ${BlueF}[☆]${white}" Edit this script and change the 'RoOt' variable .."${Reset};
+        sleep 1
+        # Abort script execution ..
+        exit
+      fi
+
 
   else
-
 
     #
     # Trying to locate the latest version installed (Kali)..

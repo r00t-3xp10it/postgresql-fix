@@ -1,13 +1,13 @@
-[![Version](https://img.shields.io/badge/postgresql_fix-1.3-brightgreen.svg?maxAge=259200)]()
+[![Version](https://img.shields.io/badge/postgresql_fix-1.4-brightgreen.svg?maxAge=259200)]()
 [![Stage](https://img.shields.io/badge/Release-Stable-brightgreen.svg)]()
 [![Build](https://img.shields.io/badge/Supported_OS-kali,Ubuntu-blue.svg)]()
 
 
-![postgresql-fix v1.3](http://1.1m.yt/CqtQI1e.png)
+![postgresql-fix v1.4](http://1.1m.yt/CqtQI1e.png)
 
 
-## Postgresql-fix v1.3 - msfdb connection bugfix
-    Version release: v1.3 (Stable)
+## Postgresql-fix v1.4 - msfdb connection bugfix
+    Version release: v1.4 (Stable)
     Author: pedro ubuntu [ r00t-3xp10it ]
     CodeName: Metasploit_postgresql_database_connection_fix
     Distros Supported : Linux Ubuntu, Kali, Mint, Parrot OS
@@ -19,7 +19,7 @@
     This tool will try to quickly fix the metasploit postgresql connection bug,
     present in postgresql.conf install versions from 9.1 to 9.7 (Incorrect port settings).
     'Just run it before using metasploit to check settings OR fix msfdb connection errors'
-![postgresql-fix v1.3](http://3.1m.yt/HxhuFoF.png)
+![postgresql-fix v1.4](http://3.1m.yt/HxhuFoF.png)
 
     This module will seach in postgresql.conf for port settings, and change it to the
     correct port configuration needed by msfdb (5432), it starts postgresql service and
@@ -30,22 +30,22 @@
     This module allows users to config a diferent port (5432) to be used, and a diferent
     postgresql installation path (/etc/postgresql) Users just need to edit the script
     and modify the values 'PoRt' and 'RoOt' in 'Tool variable declarations' funtion.
-![postgresql-fix v1.3](http://2.1m.yt/tPOL7Vh.png)
+![postgresql-fix v1.4](http://2.1m.yt/tPOL7Vh.png)
 
 
 <br /><br />
 
 ## Possible errors encounter in configurations
 Incorrect postgresql port configuration setting
-![Postgresql-fix v1.3](http://1.1m.yt/3FJOy-d.png)
+![Postgresql-fix v1.4](http://1.1m.yt/3FJOy-d.png)
 Postgresql selected, no connection ..
-![Postgresql-fix v1.3](http://2.1m.yt/So80mg-.png)
+![Postgresql-fix v1.4](http://2.1m.yt/So80mg-.png)
 
 <br />
 
 ## Improbable script execution errors
 Is your postgresql.conf installed in a diferent path? 
-![Postgresql-fix v1.3](http://3.1m.yt/WGk3Whl.png)
+![Postgresql-fix v1.4](http://3.1m.yt/WGk3Whl.png)
 
 <br /><br />
 
