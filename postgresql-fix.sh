@@ -129,6 +129,8 @@ cat << !
         postgresql_path="$RoOt/9.6/main/postgresql.conf"
       elif [ -e "$RoOt/9.7/main/postgresql.conf" ]; then
         postgresql_path="$RoOt/9.7/main/postgresql.conf"
+      elif [ -e "$RoOt/11/main/postgresql.conf" ]; then
+        postgresql_path="$RoOt/11/main/postgresql.conf"
       else
         echo ${RedF}[x]${white}" Postgresql.conf path not found .."${Reset};
         sleep 1
@@ -177,6 +179,10 @@ cat << !
     path=`locate postgresql.conf | grep "/etc" | grep "9.7"`
     if [ "$path" = "$RoOt/9.7/main/postgresql.conf" ]; then
       postgresql_path="$RoOt/9.7/main/postgresql.conf"
+    fi
+    path=`locate postgresql.conf | grep "/etc" | grep "11"`
+    if [ "$path" = "$RoOt/11/main/postgresql.conf" ]; then
+      postgresql_path="$RoOt/11/main/postgresql.conf"
     fi
   fi
 
