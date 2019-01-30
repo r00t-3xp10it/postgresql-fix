@@ -288,7 +288,7 @@ sleep 1
         echo ${GreenF}[✔]${white}" LocalHost settings: $print "${Reset};
         sleep 1
         echo ${BlueF}[☆]${white}" Checking msfdb connection status .."${Reset};
-        ih=`msfconsole -q -x 'db_status; exit -y' | awk {'print $3'}`
+        ih=`msfconsole -q -x 'db_status; exit -y' | grep "postgresql" | awk {'print $3'}`
 
           #
           # Postgresql selected, no connection ..
